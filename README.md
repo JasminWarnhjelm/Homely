@@ -19,7 +19,13 @@ This app will include following pages.
 <!-- instruction how to use (might not be a coder)
 # How to use the app
 
-1. Clone this project
+1. Clone this project 
+2. Open the folder in terminal
+3. Command: npm install
+4. Run with command: npx expo start
+the app can be run with command npx expo start
+
+Install Expo Go on your mobile device and scan the qr-code to explore the app.
 -->
 
 <!-- instructions for coders who want to use the tool -->
