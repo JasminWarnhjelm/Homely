@@ -104,4 +104,3 @@ Install Expo Go on your mobile device and scan the qr-code to explore the app.
 
 
 <!-- donations -->
->>>>>>> 564259c3d9bc1cc4cfb79a67bdaccb126352cff6
