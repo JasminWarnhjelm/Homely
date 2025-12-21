@@ -58,20 +58,17 @@ Join our community of developers creating universal apps.
 <!-- One line introduction -->
 ## A shared app for partners to manage chores and shopping lists
 
-<!-- Short paragraph of the project (use key words) 
+<!-- Short paragraph of the project (use key words) -->
 This app will include following pages.
-- Shopping list
 - Chores list
-- Recipes
--->
-
+- Shopping list
+- Profile
 
 <!-- Diagram or a video that explains the project a little bit better --> 
 <!-- Youtube demo video would be great -->
 
-
 <!-- instruction how to use (might not be a coder) -->
-# How to use the app
+### How to use the app
 
 1. Clone this project
 2. Install dependencies
