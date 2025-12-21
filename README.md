@@ -85,8 +85,7 @@ This app will include following pages.
    ```bash
    npx expo start
    ```
-
-Install Expo Go on your mobile device and scan the qr-code to explore the app.
+4. Install Expo Go on your mobile device and scan the qr-code to explore the app.
 
 <!-- instructions for coders who want to use the tool -->
 
