@@ -2,18 +2,20 @@ import { Tabs } from 'expo-router'
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Feather from '@expo/vector-icons/Feather';
 import Octicons from '@expo/vector-icons/Octicons';
+import useTheme from '@/hooks/useTheme';
 
 /* Tabs for each main section of the app */
 const TabsLayout = () => {
+    const {colors} = useTheme();
   return (
     /* Styles for tab bar and icons */
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: 'blue',
-        tabBarInactiveTintColor: 'gray',
+        tabBarActiveTintColor: colors.primary,
+        tabBarInactiveTintColor: colors.textMuted,
         tabBarStyle: {
-            backgroundColor: "lightblue",
-            borderTopColor: "blue",
+            backgroundColor: colors.surface,
+            borderTopColor: colors.border,
             borderTopWidth: 2,
             height: 90,
             paddingBottom: 30,
