@@ -11,7 +11,7 @@ export default function RootLayout() {
   return (
     <ConvexProvider client={convex}>
       <ThemeProvider>
-        <Stack /*screenOptions={{ headerShown: false }} */>
+        <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen
             name="(tabs)"
           />
