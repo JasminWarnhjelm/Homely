@@ -1,20 +1,19 @@
+import { createProfileStyles } from "@/assets/styles/profile.styles";
 import useTheme from "@/hooks/useTheme";
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Profile() {
-  const {toggleDarkMode} = useTheme();
+  const { toggleDarkMode, colors } = useTheme();
+
+  const profileStyles = createProfileStyles(colors);
+
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/profile.tsx to edit this screen.</Text>
+    <SafeAreaView style={profileStyles.safeArea} >
+      <Text style={profileStyles.content}>Edit app/profile.tsx to edit this screen.</Text>
       <TouchableOpacity onPress={toggleDarkMode}>
-        <Text>Toggle Dark Mode</Text>
+        <Text style={profileStyles.content}>Toggle Dark Mode</Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 }
