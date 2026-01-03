@@ -1,9 +1,10 @@
 import { createShoppingStyles } from "@/assets/styles/shoppingList.styles";
 import useTheme from "@/hooks/useTheme";
 import { StatusBar } from "expo-status-bar";
-import { Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function ShoppingList() {
   const { toggleDarkMode, colors } = useTheme();
@@ -14,10 +15,20 @@ export default function ShoppingList() {
     <LinearGradient colors={colors.gradients.background} style={shoppingStyles.container}>
       <StatusBar style={colors.statusBarStyle} />
       <SafeAreaView style={shoppingStyles.safeArea} >
-        <Text style={shoppingStyles.content}>Edit app/shopping_list.tsx to edit this screen.</Text>
-        <TouchableOpacity onPress={toggleDarkMode}>
-          <Text style={shoppingStyles.content}>Toggle Dark Mode</Text>
-        </TouchableOpacity>
+        <View style={shoppingStyles.header}>
+            <View style={shoppingStyles.titleContainer}>
+                {/* Icon Container */}
+                <LinearGradient colors={colors.gradients.primary} style={shoppingStyles.iconContainer}>
+                    <Ionicons name="flash-outline" size={28} color="#ffffff" />
+                </LinearGradient>
+
+                {/* Title and Subtitle */}
+                <View style={shoppingStyles.titleTextContainer}>
+                    <Text style={shoppingStyles.title}>Shopping Lists</Text>
+                    <Text style={shoppingStyles.subtitle}>{`0 shopping lists`}</Text>
+                </View>
+            </View>
+          </View>
       </SafeAreaView>
     </LinearGradient>
   );
