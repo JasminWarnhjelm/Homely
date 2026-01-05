@@ -32,6 +32,11 @@ export const createProfileStyles = (colors) => {
       letterSpacing: -1,
       color: colors.text,
     },
+    subtitle: {
+      fontSize: 17,
+      fontWeight: "500",
+      color: colors.textMuted,
+    },
     scrollView: {
       flex: 1,
     },
@@ -98,7 +103,7 @@ export const createProfileStyles = (colors) => {
       marginTop: 2,
       color: colors.textMuted,
     },
-    settingItem: {
+    profileItem: {
       flexDirection: "row",
       justifyContent: "space-between",
       alignItems: "center",
@@ -106,12 +111,12 @@ export const createProfileStyles = (colors) => {
       borderBottomWidth: 1,
       borderBottomColor: colors.border,
     },
-    settingLeft: {
+    profileLeft: {
       flexDirection: "row",
       alignItems: "center",
       flex: 1,
     },
-    settingIcon: {
+    profileIcon: {
       width: 36,
       height: 36,
       borderRadius: 8,
@@ -119,7 +124,7 @@ export const createProfileStyles = (colors) => {
       alignItems: "center",
       marginRight: 16,
     },
-    settingText: {
+    profileText: {
       fontSize: 17,
       fontWeight: "600",
       color: colors.text,

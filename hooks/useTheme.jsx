@@ -22,7 +22,7 @@ const lightColors = {
     success: ["#10b981", "#059669"],
     warning: ["#f59e0b", "#d97706"],
     danger: ["#ef4444", "#dc2626"],
-    muted: ["#9ca3af", "#6b7280"],
+    muted: ["#9ca3af", "#6b7280"], // change
     empty: ["#f3f4f6", "#e5e7eb"],
   },
   backgrounds: {

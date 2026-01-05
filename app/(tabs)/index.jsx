@@ -115,14 +115,14 @@ export default function Index() {
               <View style={homeStyles.editButtons}>
                 <TouchableOpacity onPress={handleSaveEdit} activeOpacity={0.8}>
                   <LinearGradient colors={colors.gradients.success} style={homeStyles.editButton}>
-                    <Ionicons name="checkmark" size={18} color="#ffffff" />
+                    <Ionicons name="checkmark" size={18} color={colors.text} />
                     <Text style={homeStyles.editButtonText}>Save</Text>
                   </LinearGradient>
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={handleCancelEdit} activeOpacity={0.8}>
                   <LinearGradient colors={colors.gradients.muted} style={homeStyles.editButton}>
-                    <Ionicons name="close" size={18} color="#ffffff" />
+                    <Ionicons name="close" size={18} color={colors.text} />
                     <Text style={homeStyles.editButtonText}>Cancel</Text>
                   </LinearGradient>
                 </TouchableOpacity>

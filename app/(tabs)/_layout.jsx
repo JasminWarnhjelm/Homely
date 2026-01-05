@@ -3,6 +3,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import Feather from '@expo/vector-icons/Feather';
 import Octicons from '@expo/vector-icons/Octicons';
 import useTheme from '@/hooks/useTheme';
+import { Platform } from 'react-native';
 
 /* Tabs for each main section of the app */
 const TabsLayout = () => {
@@ -13,6 +14,7 @@ const TabsLayout = () => {
       screenOptions={{
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: colors.textMuted,
+
         tabBarStyle: {
             backgroundColor: colors.surface,
             borderTopColor: colors.border,
@@ -21,6 +23,11 @@ const TabsLayout = () => {
             paddingBottom: 30,
             paddingTop: 10,
         },
+
+        tabBarItemStyle: {
+        marginTop: Platform.OS === 'android' ? -10 : 0,
+        },
+
         tabBarLabelStyle: {
             fontSize: 12,
             fontWeight: '600',

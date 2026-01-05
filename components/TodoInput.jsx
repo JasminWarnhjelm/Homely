@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import useTheme from '@/hooks/useTheme';
 import { createHomeStyles } from '@/assets/styles/home.styles';
 import { useState } from 'react';
