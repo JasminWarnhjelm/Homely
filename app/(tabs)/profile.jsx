@@ -3,10 +3,11 @@ import useTheme from "@/hooks/useTheme";
 import { ScrollView, Text, View, StatusBar } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
-import { Ionicons } from "@expo/vector-icons";
 import ProgressStats from "../../components/ProgressStats";
 import Preferences from "../../components/Preferences";
 import DangerZone from "../../components/DangerZone";
+import Feather from '@expo/vector-icons/Feather';
+
 
 export default function Profile() {
 
@@ -22,7 +23,7 @@ export default function Profile() {
         <View style={profileStyles.header}>
           <View style={profileStyles.titleContainer}>
               <LinearGradient colors={colors.gradients.primary} style={profileStyles.iconContainer}>
-                <Ionicons name="person" size={28} color="#ffffff" />
+                <Feather name="user" size={35} color={"#ffffff"} />
               </LinearGradient>
               {/* Title and Subtitle */}
               <View style={profileStyles.titleTextContainer}>

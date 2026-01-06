@@ -12,6 +12,8 @@ import EmptyStateLists from "@/components/EmptyStateLists";
 import ListInput from "@/components/ListInput";
 import Entypo from '@expo/vector-icons/Entypo';
 import { Menu, Provider } from 'react-native-paper';
+import AntDesign from '@expo/vector-icons/AntDesign';
+import { router } from "expo-router";
 
 
 export default function ShoppingList() {
@@ -34,11 +36,6 @@ export default function ShoppingList() {
   const updateList = useMutation(api.lists.updateLists);
 
   const totalLists = lists ? lists.length : 0;
-
-  // Define mutations
-  const addList = useMutation(api.lists.addlist);
-  // Define mutation to clear all lists
-  const clearAllLists = useMutation(api.lists.clearAllLists);
 
   const isLoading = lists === undefined;
 
@@ -82,90 +79,107 @@ export default function ShoppingList() {
   const openMenu = (id) => setMenuVisibleId(id);
   const closeMenu = () => setMenuVisibleId(null);
 
+  const handleOpenList = (list) => {
+    router.push(`/(shopping)/${list._id}`);
+  }
+
   const renderListItem = ({ item }) => {
     const isEditing = editingId === item._id;
     return (
       <View style={shoppingStyles.listItemWrapper}>
-        <LinearGradient colors={colors.gradients.surface}
-          style={shoppingStyles.listItem}
-          start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
-        >
 
           {isEditing ? (
-            <View style={shoppingStyles.editContainer}>
-              <TextInput
-                style={shoppingStyles.editInput}
-                value={editName}
-                onChangeText={setEditName}
-                autoFocus // focus the input when editing
-                multiline
-                placeholder="Edit your list..."
-                placeholderTextColor={colors.textMuted}
-              />
-              <View style={shoppingStyles.editButtons}>
-                <TouchableOpacity onPress={handleSaveEdit} activeOpacity={0.8}>
-                  <LinearGradient colors={colors.gradients.success} style={shoppingStyles.editButton}>
-                    <Ionicons name="checkmark" size={18} color={colors.text} />
-                    <Text style={shoppingStyles.editButtonText}>Save</Text>
-                  </LinearGradient>
-                </TouchableOpacity>
+            <LinearGradient colors={colors.gradients.surface}
+              style={shoppingStyles.listItem}
+              start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
+              >
+              <View style={shoppingStyles.editContainer}>
+                <TextInput
+                  style={shoppingStyles.editInput}
+                  value={editName}
+                  onChangeText={setEditName}
+                  autoFocus // focus the input when editing
+                  multiline
+                  placeholder="Edit your list..."
+                  placeholderTextColor={colors.textMuted}
+                />
+                <View style={shoppingStyles.editButtons}>
+                  <TouchableOpacity onPress={handleSaveEdit} activeOpacity={0.8}>
+                    <LinearGradient colors={colors.gradients.success} style={shoppingStyles.editButton}>
+                      <Ionicons name="checkmark" size={18} color={colors.text} />
+                      <Text style={shoppingStyles.editButtonText}>Save</Text>
+                    </LinearGradient>
+                  </TouchableOpacity>
 
-                <TouchableOpacity onPress={handleCancelEdit} activeOpacity={0.8}>
-                  <LinearGradient colors={colors.gradients.muted} style={shoppingStyles.editButton}>
-                    <Ionicons name="close" size={18} color={colors.text} />
-                    <Text style={shoppingStyles.editButtonText}>Cancel</Text>
-                  </LinearGradient>
-                </TouchableOpacity>
+                  <TouchableOpacity onPress={handleCancelEdit} activeOpacity={0.8}>
+                    <LinearGradient colors={colors.gradients.muted} style={shoppingStyles.editButton}>
+                      <Ionicons name="close" size={18} color={colors.text} />
+                      <Text style={shoppingStyles.editButtonText}>Cancel</Text>
+                    </LinearGradient>
+                  </TouchableOpacity>
+                </View>
               </View>
-            </View>
+            </LinearGradient>
           ) : (
-          <View style={shoppingStyles.listTextContainer}>
-            <Text
-              style={[
-                shoppingStyles.listText,
-              ]}
+            <LinearGradient
+              colors={colors.gradients.surface}
+              style={shoppingStyles.listItem}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
             >
-              {item.name}
-            </Text>
-            <Menu
-              style={shoppingStyles.menu}
-              visible={menuVisibleId === item._id}
-              onDismiss={closeMenu}
-              anchor={
-                <TouchableOpacity onPress={() => openMenu(item._id)}>
-                  <Entypo name="dots-three-horizontal" size={24} color={colors.text}/>
-                </TouchableOpacity>
-              }
-              contentStyle={{
-                marginTop: 30,
-                marginRight: -20,
-                backgroundColor: colors.bg,
-                borderRadius: 10,
-                paddingVertical: 4,
-                minWidth: 140,
-                elevation: 4,       // varjo Androidilla
-              }}
+            <TouchableOpacity
+              style={{ flex: 1 }}
+              activeOpacity={0.8}
+              onPress={() => handleOpenList(item)}
             >
-              <Menu.Item
-                titleStyle={{ color: colors.text}}
-                onPress={() => {
-                  handleEditList(item);
-                  closeMenu();
+              <View style={shoppingStyles.listTextContainer}>
+                <Text
+                  style={shoppingStyles.listText}
+                  numberOfLines={1}
+                  ellipsizeMode="tail"
+                >
+                  {item.name}
+                </Text>
+              </View>
+            </TouchableOpacity>
+              <Menu
+                style={shoppingStyles.menu}
+                visible={menuVisibleId === item._id}
+                onDismiss={closeMenu}
+                anchor={
+                  <TouchableOpacity onPress={() => openMenu(item._id)}>
+                    <Entypo name="dots-three-horizontal" size={24} color={colors.text}/>
+                  </TouchableOpacity>
+                }
+                contentStyle={{
+                  marginTop: 30,
+                  marginRight: -20,
+                  backgroundColor: colors.bg,
+                  borderRadius: 10,
+                  paddingVertical: 4,
+                  minWidth: 140,
+                  elevation: 4,       // varjo Androidilla
                 }}
-                title="Muokkaa"
-              />
-              <Menu.Item
-                titleStyle={{ color: colors.text}}
-                onPress={() => {
-                  handleDeleteList(item._id);
-                  closeMenu();
-                }}
-                title="Poista"
-              />
-            </Menu>
-          </View>
+              >
+                <Menu.Item
+                  titleStyle={{ color: colors.text}}
+                  onPress={() => {
+                    handleEditList(item);
+                    closeMenu();
+                  }}
+                  title="Muokkaa"
+                />
+                <Menu.Item
+                  titleStyle={{ color: colors.text}}
+                  onPress={() => {
+                    handleDeleteList(item._id);
+                    closeMenu();
+                  }}
+                  title="Poista"
+                />
+              </Menu>
+          </LinearGradient>
           )}
-        </LinearGradient>
       </View>
     )
   }
@@ -182,9 +196,8 @@ export default function ShoppingList() {
               <View style={shoppingStyles.titleContainer}>
                   {/* Icon Container */}
                   <LinearGradient colors={colors.gradients.primary} style={shoppingStyles.iconContainer}>
-                      <Ionicons name="flash-outline" size={28} color="#ffffff" />
+                      <AntDesign name="shopping-cart" size={35} color={"#ffffff"} />
                   </LinearGradient>
-
                   {/* Title and Subtitle */}
                   <View style={shoppingStyles.titleTextContainer}>
                       <Text style={shoppingStyles.title}>Shopping Lists</Text>

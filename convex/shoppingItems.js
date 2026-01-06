@@ -2,25 +2,33 @@ import { mutation, query } from "./_generated/server";
 import { ConvexError, v } from "convex/values";
 
 
-export const getShoppingItems = query({
+export const getShoppingItemsByList = query({
+    args: {
+        listId: v.id("lists"),
+    },
     // Fetch all shopping items ordered by creation date descending
-    handler: async (ctx) => {
-        const shoppingItems = await ctx.db.query("shoppingItems").order("desc").collect();
-        return shoppingItems;
-    }
-})
+    handler: async (ctx, args) => {
+        return await ctx.db
+        .query("shoppingItems")
+        .withIndex("by_list", q => q.eq("listId", args.listId))
+        .order("desc")
+        .collect();
+    },
+});
 
 export const addShoppingItem = mutation({
-    // Add a new shopping item
-    args: {text: v.string()},
-    handler: async(ctx, args) => {
-        const shoppingItemId = await ctx.db.insert("shoppingItems", {
-            text: args.text,
-            purchased: false,
-        });
-        return shoppingItemId;
-    }
-})
+  args: {
+    text: v.string(),
+    listId: v.id("lists"),
+  },
+  handler: async (ctx, args) => {
+    return await ctx.db.insert("shoppingItems", {
+      text: args.text,
+      purchased: false,
+      listId: args.listId,
+    });
+  },
+});
 
 export const toggleShoppingItem = mutation({
     args: { id: v.id("shoppingItems") },

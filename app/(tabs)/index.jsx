@@ -28,12 +28,6 @@ export default function Index() {
   const deleteTodo = useMutation(api.todos.deleteTodo);
   // Update todo mutation
   const updateTodo = useMutation(api.todos.updateTodo);
-
-  // Define mutations
-  const addTodo = useMutation(api.todos.addTodo);
-  // Define mutation to clear all todos
-  const clearAllTodos = useMutation(api.todos.clearAllTodos);
-
   const isLoading = todos === undefined;
 
   const handleToggleTodo = async (id) => {

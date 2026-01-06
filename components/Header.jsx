@@ -6,6 +6,7 @@ import { createHomeStyles } from '@/assets/styles/home.styles';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 
+
 const Header = () => {
     const { colors } = useTheme();
     const homeStyles = createHomeStyles(colors);
@@ -21,7 +22,7 @@ const Header = () => {
             <View style={homeStyles.titleContainer}>
                 {/* Icon Container */}
                 <LinearGradient colors={colors.gradients.primary} style={homeStyles.iconContainer}>
-                    <Ionicons name="flash-outline" size={28} color="#ffffff" />
+                    <Ionicons name="clipboard-outline" size={35} color={colors.text} />
                 </LinearGradient>
 
                 {/* Title and Subtitle */}
