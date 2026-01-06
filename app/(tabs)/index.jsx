@@ -1,16 +1,15 @@
 import { api } from "@/convex/_generated/api";
 import { useMutation, useQuery } from "convex/react";
-import { FlatList, Text, TouchableOpacity, View, Alert, TextInput } from "react-native";
+import { FlatList, Text, TouchableOpacity, View, Alert, TextInput, StatusBar } from "react-native";
 import { createHomeStyles } from "@/assets/styles/home.styles";
 import useTheme from "@/hooks/useTheme";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
-import { StatusBar } from "expo-status-bar";
 import Header from "@/components/Header";
 import TodoInput from "@/components/TodoInput";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import { Ionicons } from "@expo/vector-icons";
-import EmptyState from "@/components/EmptyState";
+import EmptyStateTodos from "@/components/EmptyStateTodos";
 import { useState } from "react";
 
 export default function Index() {
@@ -167,7 +166,7 @@ export default function Index() {
   console.log(todos);
   return (
     <LinearGradient colors={colors.gradients.background} style={homeStyles.container}>
-      <StatusBar style={colors.statusBarStyle} />
+      <StatusBar barStyle={colors.statusBarStyle}/>
       <SafeAreaView style={homeStyles.safeArea}>
         <Header />
 
@@ -179,7 +178,7 @@ export default function Index() {
           keyExtractor={(item) => item._id}
           style={homeStyles.todoList}
           contentContainerStyle={homeStyles.todoListContent}
-          ListEmptyComponent={<EmptyState />}
+          ListEmptyComponent={<EmptyStateTodos />}
           showsVerticalScrollIndicator={false}
         />
       </SafeAreaView>

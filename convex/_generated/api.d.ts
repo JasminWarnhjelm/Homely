@@ -8,6 +8,7 @@
  * @module
  */
 
+import type * as lists from "../lists.js";
 import type * as shoppingItems from "../shoppingItems.js";
 import type * as todos from "../todos.js";
 
@@ -18,6 +19,7 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  lists: typeof lists;
   shoppingItems: typeof shoppingItems;
   todos: typeof todos;
 }>;

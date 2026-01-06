@@ -8,6 +8,7 @@ export const createShoppingStyles = (colors) => {
     },
     safeArea: {
       flex: 1,
+      paddingBottom: -35,
     },
     loadingContainer: {
       flex: 1,
@@ -114,10 +115,10 @@ export const createShoppingStyles = (colors) => {
     addButtonDisabled: {
       opacity: 0.5,
     },
-    todoList: {
+    listList: {
       flex: 1,
     },
-    todoListContent: {
+    listListContent: {
       paddingHorizontal: 24,
       paddingBottom: 100,
     },
@@ -125,10 +126,10 @@ export const createShoppingStyles = (colors) => {
       flexGrow: 1,
       justifyContent: "center",
     },
-    todoItemWrapper: {
+    listItemWrapper: {
       marginVertical: 12,
     },
-    todoItem: {
+    listItem: {
       flexDirection: "row",
       alignItems: "flex-start",
       padding: 20,
@@ -154,17 +155,20 @@ export const createShoppingStyles = (colors) => {
       justifyContent: "center",
       alignItems: "center",
     },
-    todoTextContainer: {
+    listTextContainer: {
       flex: 1,
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
     },
-    todoText: {
+    listText: {
       fontSize: 17,
       lineHeight: 24,
       fontWeight: "500",
-      marginBottom: 16,
+
       color: colors.text,
     },
-    todoActions: {
+    listActions: {
       flexDirection: "row",
       gap: 12,
     },

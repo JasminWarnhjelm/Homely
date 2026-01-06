@@ -1,7 +1,6 @@
 import { createProfileStyles } from "@/assets/styles/profile.styles";
 import useTheme from "@/hooks/useTheme";
-import { StatusBar } from "expo-status-bar";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, Text, View, StatusBar } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
@@ -17,7 +16,7 @@ export default function Profile() {
 
   return (
     <LinearGradient colors={colors.gradients.background} style={profileStyles.container}>
-      <StatusBar style={colors.statusBarStyle} />
+      <StatusBar barStyle={colors.statusBarStyle}/>
       <SafeAreaView style={profileStyles.safeArea} >
         {/* Header Section */}
         <View style={profileStyles.header}>

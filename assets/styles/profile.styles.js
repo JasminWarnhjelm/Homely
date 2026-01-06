@@ -8,6 +8,7 @@ export const createProfileStyles = (colors) => {
     },
     safeArea: {
       flex: 1,
+      paddingBottom: -35,
     },
     header: {
       paddingHorizontal: 24,

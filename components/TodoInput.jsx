@@ -47,7 +47,7 @@ const TodoInput = () => {
                     colors={newTodo.trim() ? colors.gradients.primary : colors.gradients.muted}
                     style={[homeStyles.addButton, !newTodo.trim() && homeStyles.addButtonDisabled]}
                     >
-                        <Ionicons name="add" size={24} color="#ffffff" />
+                        <Ionicons name="add" size={30} color="#ffffff" />
                     </LinearGradient>
                 </TouchableOpacity>
             </View>

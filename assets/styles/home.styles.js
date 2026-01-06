@@ -8,6 +8,7 @@ export const createHomeStyles = (colors) => {
     },
     safeArea: {
       flex: 1,
+      paddingBottom: -35,
     },
     loadingContainer: {
       flex: 1,
