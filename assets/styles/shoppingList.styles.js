@@ -122,6 +122,13 @@ export const createShoppingStyles = (colors) => {
       paddingHorizontal: 24,
       paddingBottom: 100,
     },
+    itemList: {
+      flex: 1,
+    },
+    itemListContent: {
+      paddingHorizontal: 24,
+      paddingBottom: 100,
+    },
     emptyListContainer: {
       flexGrow: 1,
       justifyContent: "center",
@@ -130,6 +137,23 @@ export const createShoppingStyles = (colors) => {
       marginVertical: 12,
     },
     listItem: {
+      flexDirection: "row",
+      alignItems: "flex-start",
+      padding: 20,
+      borderRadius: 20,
+      shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 4,
+      },
+      shadowOpacity: 0.1,
+      shadowRadius: 8,
+      elevation: 8,
+    },
+    itemItemWrapper: {
+      marginVertical: 12,
+    },
+    itemItem: {
       flexDirection: "row",
       alignItems: "flex-start",
       padding: 20,
@@ -161,6 +185,13 @@ export const createShoppingStyles = (colors) => {
       justifyContent: "space-between",
       alignItems: "center",
     },
+    // kommentoitu: edit ja roskis oikealle
+    itemTextContainer: {
+      flex: 1,
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+    },
     listText: {
       fontSize: 17,
       lineHeight: 24,
@@ -168,7 +199,18 @@ export const createShoppingStyles = (colors) => {
 
       color: colors.text,
     },
+    itemText: {
+      fontSize: 17,
+      lineHeight: 24,
+      fontWeight: "500",
+
+      color: colors.text,
+    },
     listActions: {
+      flexDirection: "row",
+      gap: 12,
+    },
+    itemActions: {
       flexDirection: "row",
       gap: 12,
     },

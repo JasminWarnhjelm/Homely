@@ -18,14 +18,17 @@ export const getShoppingItemsByList = query({
 
 export const addShoppingItem = mutation({
   args: {
-    text: v.string(),
+    name: v.string(),
     listId: v.id("lists"),
+    quantity: v.number(),
+    purchased: v.boolean()
   },
   handler: async (ctx, args) => {
     return await ctx.db.insert("shoppingItems", {
-      text: args.text,
-      purchased: false,
+      name: args.name,
       listId: args.listId,
+      quantity: args.quantity ?? 1,
+      purchased: args.purchased ?? false,
     });
   },
 });
@@ -55,12 +58,12 @@ export const deleteShoppingItem = mutation({
 export const updateShoppingItem = mutation({
     args: {
         id: v.id("shoppingItems"),
-        text: v.string(),
+        name: v.string(),
     },
     // Update the text of a shopping item
     handler: async(ctx, args) => {
         await ctx.db.patch(args.id, {
-            text: args.text,
+            name: args.name,
         });
     }
 })

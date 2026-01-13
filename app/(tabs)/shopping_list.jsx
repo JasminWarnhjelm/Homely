@@ -39,15 +39,6 @@ export default function ShoppingList() {
 
   const isLoading = lists === undefined;
 
-  const handleToggleList = async (id) => {
-    try {
-      await toggleList({id})
-    } catch (error) {
-      console.log("Error toggling list", error);
-      Alert.alert("Error", "Failed to toggle list");
-    }
-  }
-
   const handleDeleteList = async (id) => {
     Alert.alert("Delete list", "Are you sure you want to delete this list?", [
       {text:"Cancel", style: "cancel"},
@@ -158,7 +149,7 @@ export default function ShoppingList() {
                   borderRadius: 10,
                   paddingVertical: 4,
                   minWidth: 140,
-                  elevation: 4,       // varjo Androidilla
+                  elevation: 4,       // shadow Androidilla
                 }}
               >
                 <Menu.Item

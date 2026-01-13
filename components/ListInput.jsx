@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { View, TextInput, TouchableOpacity, Alert } from 'react-native';
 import useTheme from '@/hooks/useTheme';
 import { createShoppingStyles } from '@/assets/styles/shoppingList.styles';
 import { useState } from 'react';
@@ -16,6 +16,7 @@ const ListInput = () => {
 
     // Function to handle adding a new List
     const handleAddList = async () => {
+        console.log("List input");
         if (newList.trim()) {
             try {
                 await addList({name: newList.trim()})

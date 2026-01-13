@@ -4,7 +4,7 @@ export default function ShoppingLayout() {
   return (
     <Stack
       screenOptions={{
-        presentation: "modal", // 🔥 näyttää modalilta
+        presentation: "modal",
         headerShown: false,
       }}
     />
